@@ -9,22 +9,12 @@ apply plugin: 'opensearch.pluginzip'
 apply plugin: 'org.jetbrains.kotlin.jvm'
 apply plugin: 'org.jetbrains.kotlin.plugin.allopen'
 
-def pluginName = 'rename'
-def pluginDescription = 'Custom plugin'
+def pluginName = 'hello-world'
+def pluginDescription = 'A Simple OpenSearch REST Plugin'
 def projectPath = 'org.opensearch'
-def pathToPlugin = 'path.to.plugin'
-def pluginClassName = 'RenamePlugin'
-group = "RenameGroup"
-
-tasks.register("preparePluginPathDirs") {
-    mustRunAfter clean
-    doLast {
-        def newPath = pathToPlugin.replace(".", "/")
-        mkdir "src/main/kotlin/org/opensearch/$newPath"
-        mkdir "src/test/kotlin/org/opensearch/$newPath"
-        mkdir "src/yamlRestTest/kotlin/org/opensearch/$newPath"
-    }
-}
+def pathToPlugin = 'rest'
+def pluginClassName = 'HelloWorldPlugin'
+group = "HelloWorldGroup"
 
 publishing {
     publications {
