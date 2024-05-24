@@ -5,10 +5,7 @@
  * this file be licensed under the Apache-2.0 license or a
  * compatible open source license.
  */
-package org.opensearch.rest
+package org.opensearch.tasks.resthandler
 
-import org.opensearch.test.OpenSearchTestCase
-
-class HelloWorldTests : OpenSearchTestCase() {
-    // Add unit tests for your plugin
+class TasksRestHandler {
 }

@@ -5,4 +5,4 @@
         h: component
 
   - match:
-      $body: /^hello-world\n$/
+      $body: /^tasks\n$/

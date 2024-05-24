@@ -5,7 +5,7 @@
  * this file be licensed under the Apache-2.0 license or a
  * compatible open source license.
  */
-package org.opensearch.rest
+package org.opensearch.tasks
 
 import com.carrotsearch.randomizedtesting.annotations.ThreadLeakScope
 import org.apache.http.ParseException
@@ -20,10 +20,10 @@ import org.opensearch.plugins.Plugin
 
 @ThreadLeakScope(ThreadLeakScope.Scope.NONE)
 @OpenSearchIntegTestCase.ClusterScope(scope = OpenSearchIntegTestCase.Scope.SUITE)
-class HelloWorldPluginIT : OpenSearchIntegTestCase() {
+class TasksPluginIT : OpenSearchIntegTestCase() {
 
     override fun nodePlugins(): Collection<Class<out Plugin>> {
-        return listOf(HelloWorldPlugin::class.java)
+        return listOf(TasksPlugin::class.java)
     }
 
     @Throws(IOException::class, ParseException::class)
@@ -32,6 +32,6 @@ class HelloWorldPluginIT : OpenSearchIntegTestCase() {
         val body: String = EntityUtils.toString(response.entity, StandardCharsets.UTF_8)
 
         logger.info("response body: {}", body)
-        assertThat(body, containsString("hello-world"))
+        assertThat(body, containsString("tasks"))
     }
 }

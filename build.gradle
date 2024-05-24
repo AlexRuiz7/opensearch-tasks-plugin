@@ -9,12 +9,12 @@ apply plugin: 'opensearch.pluginzip'
 apply plugin: 'org.jetbrains.kotlin.jvm'
 apply plugin: 'org.jetbrains.kotlin.plugin.allopen'
 
-def pluginName = 'hello-world'
-def pluginDescription = 'A Simple OpenSearch REST Plugin'
+def pluginName = 'tasks'
+def pluginDescription = 'A Simple OpenSearch REST Plugin To Manage Tasks'
 def projectPath = 'org.opensearch'
-def pathToPlugin = 'rest'
-def pluginClassName = 'HelloWorldPlugin'
-group = "HelloWorldGroup"
+def pathToPlugin = 'tasks'
+def pluginClassName = 'TasksPlugin'
+group = "TasksGroup"
 
 publishing {
     publications {
@@ -30,8 +30,8 @@ publishing {
               }
               developers {
                 developer {
-                  name = "OpenSearch"
-                  url = "https://github.com/opensearch-project/opensearch-plugin-template-kotlin"
+                  name = "AlexRuiz7"
+                  url = "https://github.com/AlexRuiz7/opensearch-tasks-plugin"
                 }
               }
             }
