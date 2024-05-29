@@ -55,8 +55,15 @@ validateNebulaPom.enabled = false
 
 buildscript {
     ext {
+        isSnapshot = "true" == System.getProperty("build.snapshot", "true")
         opensearch_version = System.getProperty("opensearch.version", "2.14.0-SNAPSHOT")
         kotlin_version = System.getProperty("kotlin.version", "1.8.21")
+        // e.g. 2.0.0-rc1-SNAPSHOT -> 2.0.0.0-rc1-SNAPSHOT
+        version_tokens = opensearch_version.tokenize('-')
+        opensearch_build = version_tokens[0] + '.0'
+        if (isSnapshot) {
+            opensearch_build += "-SNAPSHOT"
+        }
     }
 
     repositories {
@@ -77,6 +84,8 @@ dependencies {
     implementation "org.opensearch:opensearch:${opensearch_version}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-common:${kotlin_version}"
+    implementation "org.opensearch:common-utils:${opensearch_build}"
+
     testImplementation "org.opensearch.test:framework:${opensearch_version}"
     testImplementation "org.jetbrains.kotlin:kotlin-test:${kotlin_version}"
 }

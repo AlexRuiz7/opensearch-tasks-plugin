@@ -7,5 +7,5 @@
  */
 package org.opensearch.tasks.action
 
-class DeleteTaskObjectAction {
+class DeleteTaskAction {
 }
